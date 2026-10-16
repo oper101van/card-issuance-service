@@ -64,3 +64,12 @@ nb-configuration.xml
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
