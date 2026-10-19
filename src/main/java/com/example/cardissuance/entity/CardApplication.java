@@ -15,7 +15,22 @@ public class CardApplication {
     @Column(name = "cardType", nullable = false, length = 150)
     private String cardType;
 
-    protected CardApplication(){
+    protected CardApplication() {
 
+    }
+    public Long getId() {
+        return id;
+    }
+    public String getApplicantName() {
+        return applicantName;
+    }
+    public String getCardType() {
+        return cardType;
+    }
+    public void setApplicantName(String applicantName) {
+        this.applicantName = applicantName;
+    }
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
     }
 }
