@@ -5,6 +5,8 @@ import com.example.cardissuance.service.CardApplicationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/applications")
 public class CardApplicationController {
@@ -22,5 +24,9 @@ public class CardApplicationController {
         return cardApplicationService.getApplicationById(id)
                 .map(application -> ResponseEntity.ok(application))
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    @GetMapping
+    public List<CardApplication> getAllApplications() {
+        return cardApplicationService.getAllApplications();
     }
 }
