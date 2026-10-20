@@ -1,7 +1,10 @@
 package com.example.cardissuance.service;
 
+import com.example.cardissuance.entity.CardApplication;
 import com.example.cardissuance.repository.CardApplicationRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CardApplicationService {
@@ -9,5 +12,11 @@ public class CardApplicationService {
 
     public CardApplicationService(CardApplicationRepository cardApplicationRepository) {
         this.cardApplicationRepository = cardApplicationRepository;
+    }
+    public CardApplication createApplication(CardApplication cardApplication) {
+        return cardApplicationRepository.save(cardApplication);
+    }
+    public Optional<CardApplication> getApplicationById(Long id) {
+        return cardApplicationRepository.findById(id);
     }
 }
