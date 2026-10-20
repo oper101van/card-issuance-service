@@ -37,4 +37,14 @@ public class CardApplicationService {
 
         return Optional.of(cardApplicationRepository.save(existingApplication));
     }
+    public boolean deleteApplication(Long id) {
+        Optional<CardApplication> applicationOpt = cardApplicationRepository.findById(id);
+        if (applicationOpt.isEmpty()) {
+            return false;
+        }else {
+            CardApplication application = applicationOpt.get();
+            cardApplicationRepository.delete(application);
+            return true;
+        }
+    }
 }

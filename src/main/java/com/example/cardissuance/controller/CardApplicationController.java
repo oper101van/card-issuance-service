@@ -33,4 +33,13 @@ public class CardApplicationController {
     public ResponseEntity<CardApplication> updateApplication(@PathVariable Long id, @RequestBody CardApplication cardApplication) {
        return ResponseEntity.of(cardApplicationService.updateApplication(id, cardApplication));
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteApplication(@PathVariable Long id) {
+        if(cardApplicationService.deleteApplication(id)) {
+            ResponseEntity.noContent().build();
+        }else {
+            ResponseEntity.notFound().build();
+        }
+        return null;
+    }
 }
