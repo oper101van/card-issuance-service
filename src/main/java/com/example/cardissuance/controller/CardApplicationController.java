@@ -29,4 +29,8 @@ public class CardApplicationController {
     public List<CardApplication> getAllApplications() {
         return cardApplicationService.getAllApplications();
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<CardApplication> updateApplication(@PathVariable Long id, @RequestBody CardApplication cardApplication) {
+       return ResponseEntity.of(cardApplicationService.updateApplication(id, cardApplication));
+    }
 }
