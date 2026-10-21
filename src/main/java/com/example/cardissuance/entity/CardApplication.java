@@ -18,6 +18,12 @@ public class CardApplication {
     protected CardApplication() {
 
     }
+
+    public CardApplication(String applicantName, String cardType) {
+        this.applicantName = applicantName;
+        this.cardType = cardType;
+    }
+
     public Long getId() {
         return id;
     }

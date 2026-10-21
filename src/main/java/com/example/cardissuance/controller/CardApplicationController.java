@@ -1,5 +1,6 @@
 package com.example.cardissuance.controller;
 
+import com.example.cardissuance.dto.CreateCardApplicationRequest;
 import com.example.cardissuance.entity.CardApplication;
 import com.example.cardissuance.service.CardApplicationService;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,9 @@ public class CardApplicationController {
         this.cardApplicationService = cardApplicationService;
     }
     @PostMapping
-    public CardApplication createApplication(@RequestBody CardApplication application) {
-        return cardApplicationService.createApplication(application);
+    public CardApplication createApplication(@RequestBody CreateCardApplicationRequest application) {
+        CardApplication cardApplication = new CardApplication(application.getApplicantName(), application.getCardType());
+        return cardApplicationService.createApplication(cardApplication);
     }
     @GetMapping("/{id}")
     public ResponseEntity<CardApplication> getApplicationById(@PathVariable Long id) {
