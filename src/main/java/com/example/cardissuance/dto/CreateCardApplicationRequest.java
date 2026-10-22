@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class CreateCardApplicationRequest {
-    private @NotBlank @Size(max = 150) String applicantName;
+    private @NotBlank(message = "Имя заявителя не должно быть пустым") @Size(max = 150) String applicantName;
     private @NotBlank @Size(max = 150) String cardType;
 
     public String getApplicantName() {
