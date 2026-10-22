@@ -1,8 +1,11 @@
 package com.example.cardissuance.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class CreateCardApplicationRequest {
-    private String applicantName;
-    private String cardType;
+    private @NotBlank @Size(max = 150) String applicantName;
+    private @NotBlank @Size(max = 150) String cardType;
 
     public String getApplicantName() {
         return applicantName;
